@@ -17,7 +17,6 @@ int check_cycle(listint_t *list)
 		temp = temp->next;
 		if (temp == list)
 		{
-			printf("Singly linked list has a circle");
 			return (1);
 		}
 	}
