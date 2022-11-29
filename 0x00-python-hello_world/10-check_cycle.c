@@ -10,15 +10,12 @@
 
 int check_cycle(listint_t *list)
 {
-	listint_s *slow, *fast;
+	listint_s *temp = list;
 
-	slow = fast = list;
-
-	while (slow && fast && fast->next)
+	while (temp)
 	{
-		slow = slow->next;
-		fast = fast->next->next;
-		if (slow == fast)
+		temp = temp->next;
+		if (temp == list)
 		{
 			printf("Singly linked list has a circle");
 			return (1);
