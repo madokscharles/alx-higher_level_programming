@@ -1,14 +1,15 @@
 #!/usr/bin/python3
 # 2-square.py by Madoks Charles
+"""A module that defines a square """
 
 
 class Square:
-    """A class that represents a Square"""
+    """A class that represents a square"""
 
     def __init__(self, size=0):
-        """Initializing square class
+        """Initializing this square class
         Args:
-            size: represents size of square defined
+            size: represnets the size of the square defined
         Raises:
             TypeError: if size is not integer
             ValueError: if size is less than zero
