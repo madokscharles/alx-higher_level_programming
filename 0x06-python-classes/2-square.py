@@ -3,11 +3,15 @@
 
 
 class Square:
-    """A class that represents a square"""
+    """A class that represents a Square"""
 
     def __init__(self, size=0):
         """Initializing square class
-        Size - size of square defined
+        Args:
+            size: represents size of square defined
+        Raises:
+            TypeError: if size is not integer
+            ValueError: if size is less than zero
         """
 
         if type(size) is not int:
