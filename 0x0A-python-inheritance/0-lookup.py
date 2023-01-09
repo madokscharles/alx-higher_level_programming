@@ -7,4 +7,4 @@
 
 def lockup(obj):
     """ This function looks out for attributes and methods of an obj """
-    return list(obj)
+    return dir(obj)
