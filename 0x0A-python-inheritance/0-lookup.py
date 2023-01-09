@@ -5,6 +5,6 @@
 """
 
 
-def lockup(obj):
+def lookup(obj):
     """ This function looks out for attributes and methods of an obj """
     return dir(obj)
