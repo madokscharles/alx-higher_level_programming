@@ -7,8 +7,8 @@ const process = require('process');
 // Printing value for process.argv
 const myArgs = process.argv;
 
-if (myArgs.length === 2) {
-  console.log('No argument');
+if (myArgs.length > 2) {
+  console.log('Argument' + (myArgs > 3 ? 's' : '') + ' found');
 } else {
-  console.log('Argument found');
+  console.log('No argument');
 }
