@@ -6,16 +6,14 @@ const squareSize = process.argv[2];
 if (!parseInt(squareSize)) {
   console.log('Missing size');
 } else {
-  let counter = 1;
-  while (counter <= squareSize) {
-    let column = 1;
+  for (let counter = 0; counter < squareSize; counter++) {
+    let column = 0;
     let line = '';
 
-    while (column <= squareSize) {
+    while (column < squareSize) {
       line += 'X';
       column++;
     }
     console.log(line);
-    counter++;
   }
 }
