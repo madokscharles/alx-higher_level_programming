@@ -18,7 +18,7 @@ if __name__ == '__main__':
 
     db_cur = db_connect.cursor()
 
-    db_cur.execute("SELECT * FROM states ORDER BY id")
+    db_cur.execute("SELECT * FROM states ORDER BY id ASC")
 
     ''' fetch all at once '''
     rows_selected = db_cur.fetchall()
