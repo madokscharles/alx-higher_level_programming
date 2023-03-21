@@ -10,7 +10,8 @@ if __name__ == '__main__':
     """
     Accesses the database and connects to database
     """
-    db_connect = MySQLdb.connect(host="localhost",
+    db_connect = MySQLdb.connect(
+            host="localhost",
             user=av[1],
             port=3306,
             passwd=av[2],
@@ -20,7 +21,7 @@ if __name__ == '__main__':
 
     db_cur.execute("SELECT * FROM states ORDER BY id ASC")
 
-    ''' fetch all at once '''
+    """ fetch all at once """
     rows_selected = db_cur.fetchall()
 
     for row in rows_selected:
