@@ -22,9 +22,10 @@ if __name__ == '__main__':
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    result = session.query(State).all()
-    for row in result:
-        if 'a' in str(row.name):
+    result = session.query(State).filter(State.name.contains('a'))
+    if result is not None:
+        for row in result:
             session.delete(row)
+
     session.commit()
     session.close()
