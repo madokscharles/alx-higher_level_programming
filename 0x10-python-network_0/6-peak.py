@@ -9,15 +9,19 @@ def find_peak(list_of_integers):
     Return: the peak or None
     """
     size = len(list_of_integers)
-    mid = size // 2
 
     if size == 0:
         return None
+    if size == 1:
+        return list_of_integers[0]
 
-    while True:
-        if mid > 0 and list_of_integers[mid-1] > list_of_integers[mid]:
-            mid -= 1
-        elif mid < size-1 and list_of_integers[mid+1] > list_of_integers[mid]:
-            mid += 1
+    left = 0
+    right = size - 1
+
+    while left < right:
+        mid = (left + right) // 2
+        if list_of_integers[mid] < list_of_integers[mid + 1]:
+            left = mid + 1
         else:
-            return list_of_integers[mid]
+            right = mid
+    return list_of_integers[left]
