@@ -3,21 +3,21 @@
 import requests
 from sys import argv
 
+
 if __name__ == "__main__":
-    if len(argv) == 2:
-        data_q = argv[1]
+    if len(argv) < 2:
+        data = {"q": ""}
     else:
-        data_q = ""
+        data = {"q": argv[1]}
 
     url = "http://0.0.0.0:5000/search_user"
-    response = requests.post(url, data={'data_q': data_q})
+    response = requests.post(url, data)
 
     try:
         response_json = response.json()
-        if response_json:
-            print("[{}] {}".format(response_json['id'], response_json['name']))
-        else:
-            print("No result")
-
     except ValueError:
         print("Not a valid JSON")
+    if len(response_json) < 1 or ("id" and "name") not in response_json:
+        print("No result")
+    else:
+        print("[{}] {}".format(response_json["id"], response_json["name"]))
