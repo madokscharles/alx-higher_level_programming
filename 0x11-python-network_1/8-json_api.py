@@ -5,7 +5,7 @@ from sys import argv
 
 
 if __name__ == "__main__":
-    if len(argv) < 2:
+    if len(argv) == 1:
         data = {"q": ""}
     else:
         data = {"q": argv[1]}
@@ -14,10 +14,10 @@ if __name__ == "__main__":
     response = requests.post(url, data)
 
     try:
-        response_json = response.json()
+        res_json = response.json()
+        if res_json == {}:
+            print("No result")
+        else:
+            print("[{}] {}".format(res_json.get("id"), res_json.get("name")))
     except ValueError:
         print("Not a valid JSON")
-    if len(response_json) < 1 or ("id" and "name") not in response_json:
-        print("No result")
-    else:
-        print("[{}] {}".format(response_json["id"], response_json["name"]))
