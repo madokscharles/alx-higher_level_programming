@@ -8,7 +8,7 @@ import sys
 
 if __name__ == '__main__':
     """
-    Get states from database
+    Connects to database
     """
     db_connect = MySQLdb.connect(
             host="localhost",
@@ -18,14 +18,14 @@ if __name__ == '__main__':
             db=sys.argv[3]
             )
 
-    db_cursor = db_connect.cursor()
+    db_cur = db_connect.cursor()
 
-    db_cursor.execute("SELECT * FROM states")
+    db_cur.execute("SELECT * FROM states ORDER BY id")
 
-    selected = db_cursor.fetchall()
+    selected = db_cur.fetchall()
 
-    for row in selected :
+    for row in selected:
         print("({}, \'{}\')".format(row[0], row[1]))
 
-    db_cursor.close()
+    db_cur.close()
     db_connect.close()
