@@ -22,12 +22,12 @@ if __name__ == '__main__':
 
         db_cur = db_connect.cursor()
 
-        db_cur.execute("SELECT * FROM states WHERE name \
-                LIKE BINARY 'N%' ORDER BY id")
+        db_cur.execute("SELECT * FROM states WHERE name LIKE \
+                BINARY 'N%' ORDER BY states.id ASC")
 
         selected = db_cur.fetchall()
         for row in selected :
-            print("({}, \'{}\')".format(row[0], row[1]))
+            print(row)
 
         db_cur.close()
         db_connect.close()
