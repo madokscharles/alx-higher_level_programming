@@ -7,10 +7,9 @@ starting with N (upper N) from the database hbtn_0e_0_usa
 import MySQLdb
 import sys
 
+""" Connects to database, gets states """
+
 if __name__ == '__main__':
-    """
-    Connects to the database, gets states
-    """
     if __name__ == "__main__":
         db_connect = MySQLdb.connect(
                 host="localhost",
@@ -22,8 +21,8 @@ if __name__ == '__main__':
 
         db_cur = db_connect.cursor()
 
-        db_cur.execute("SELECT * FROM states WHERE name LIKE \
-                BINARY 'N%' ORDER BY states.id ASC")
+        db_cur.execute("SELECT * FROM states WHERE name LIKE BINARY 'N%' \
+                ORDER BY states.id ASC")
 
         selected = db_cur.fetchall()
         for row in selected :
