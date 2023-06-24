@@ -23,7 +23,8 @@ if __name__ == '__main__':
 
         db_cur = db_connect.cursor()
 
-        db_cur.execute("SELECT * FROM states WHERE name LIKE BINARY 'N%' ORDER BY id")
+        db_cur.execute("SELECT * FROM states WHERE name LIKE BINARY \
+                    'N%' ORDER BY id")
 
         selected = db_cur.fetchall()
         for row in selected:
