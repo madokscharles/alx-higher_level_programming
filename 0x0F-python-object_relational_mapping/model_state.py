@@ -15,6 +15,11 @@ Base = declarative_base()
 class State(Base):
     """
     Defines a State class which inherits from the Base class
+
+    Attribute:
+        __tablename__ (str): Table name of the class
+        id (int): State id
+        name (str): State name
     """
     __tablename__ = 'states'
 
