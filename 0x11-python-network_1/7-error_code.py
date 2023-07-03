@@ -8,7 +8,8 @@ from sys import argv
 
 
 if __name__ == "__main__":
-    r = requests.get(argv[1])
+    url = argv[1]
+    r = requests.get(url)
     code = r.status_code
 
     if code >= 400:
