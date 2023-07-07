@@ -7,17 +7,18 @@ import requests
 from sys import argv
 
 
-if __name__ == "__main__":
-    url = 'https://api.github.com/repos/{}/{}/commits'.format(
-            argv[2], argv[1])
-
-    response = requests.get(url)
-    commits = response.json()
-
+if __name__ == '__main__':
     try:
-        for i in range(10):
-            print("{}: {}".format(
-                commits[i].get("sha"),
-                commits[i].get("commit").get("author").get("name")))
-    except IndexError:
+        repo = argv[1]
+        owner = argv[2]
+        url = 'https://api.github.com/repos/{}/{}/commits'.format(
+                owner, repo)
+
+        response = requests.get(url)
+        commits = response.json()
+
+        for i in range(0, 10):
+            print('{}: {}'.format(commits[i]['sha'],
+                                  commits[i]['commit']['author']['name']))
+    except Exception:
         pass
